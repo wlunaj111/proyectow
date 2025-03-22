@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import searchRoutes from './routes/search.routes.js';
+import notificar from './controllers/boot/index.js';
 
 //inicialization
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(searchRoutes);
+app.use(notificar);
 
 
 //routes
