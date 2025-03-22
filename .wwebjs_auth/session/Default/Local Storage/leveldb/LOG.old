@@ -1,6 +1,2 @@
-2025/03/22-00:26:01.237 3638 Reusing MANIFEST C:\Users\wlunaj111\Desktop\projectwj\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2025/03/22-00:26:01.238 3638 Recovering log #16
-2025/03/22-00:26:01.239 3638 Reusing old log C:\Users\wlunaj111\Desktop\projectwj\.wwebjs_auth\session\Default\Local Storage\leveldb/000016.log 
-2025/03/22-00:28:06.838 12a0 Level-0 table #21: started
-2025/03/22-00:28:06.843 12a0 Level-0 table #21: 15510 bytes OK
-2025/03/22-00:28:06.846 12a0 Delete type=0 #16
+2025/03/22-13:38:38.262 1bc4 Creating DB C:\Users\wlunaj111\Desktop\projectwj\.wwebjs_auth\session\Default\Local Storage\leveldb since it was missing.
+2025/03/22-13:38:38.303 1bc4 Reusing MANIFEST C:\Users\wlunaj111\Desktop\projectwj\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
