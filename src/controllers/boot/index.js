@@ -13,7 +13,7 @@ let anuncios = []
 let isNotifying = false;
 client.on('ready', () => {
     console.log('Cliente de WhatsApp está listo');
-    setInterval(notificar, 15000);
+    setInterval(notificar, 5000);
 });
 
 const notificar = async () => {
@@ -37,7 +37,7 @@ const notificar = async () => {
         const mensaje = `${anuncio.titulo} ${anuncio.descripcion}`;
 
         // Esperar el tiempo acumulativo antes de enviar el mensaje
-        await new Promise(resolve => setTimeout(resolve, 5000 * i));
+        await new Promise(resolve => setTimeout(resolve, 1000 * i));
 
         try {
             const response = await client.sendMessage(`${anuncio.telefono}@c.us`, mensaje);
