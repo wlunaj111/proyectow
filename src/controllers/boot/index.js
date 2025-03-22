@@ -18,7 +18,7 @@ client.on('ready', () => {
 
 const notificar = async () => {
     if (isNotifying) {
-        console.log('se estan enviando notificaciones todavia');
+        console.log('se estan enviando notificaciones todavia', anuncios);
         return;
     }
     isNotifying = true; // Marcar como en ejecución
