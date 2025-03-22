@@ -13,7 +13,7 @@ let anuncios = []
 let isNotifying = false;
 client.on('ready', () => {
     console.log('Cliente de WhatsApp está listo');
-    setInterval(notificar, 5000);
+    setInterval(notificar, 15000);
 });
 
 const notificar = async () => {
