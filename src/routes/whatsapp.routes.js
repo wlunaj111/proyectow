@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import getQRCode from '../controllers/boot/index.js';
+import { getQRCode } from '../controllers/boot/index.js';
 
 const router = Router();
 

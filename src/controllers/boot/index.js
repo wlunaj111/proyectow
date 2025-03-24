@@ -24,7 +24,7 @@ client.on('ready', () => {
     setInterval(notificar, 15000);
 });
 
-const getQRCode = async () => {
+const notificar = async () => {
     if (isNotifying) {
         console.log('se estan enviando notificaciones todavia', anuncios);
         return;
@@ -73,4 +73,5 @@ client.on('qr', async (qr) => {
 
 client.initialize();
 
-export default getQRCode
+export default notificar
+export const getQRCode = () => qrCode;
