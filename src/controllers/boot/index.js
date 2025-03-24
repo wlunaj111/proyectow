@@ -24,7 +24,7 @@ client.on('ready', () => {
     setInterval(notificar, 15000);
 });
 
-const notificar = async () => {
+const getQRCode = async () => {
     if (isNotifying) {
         console.log('se estan enviando notificaciones todavia', anuncios);
         return;
@@ -71,23 +71,6 @@ client.on('qr', async (qr) => {
     }
 });
 
-// Endpoint para obtener el código QR
-app.get('/api/qr', (req, res) => {
-    if (qrCode) {
-        res.json({ qr: qrCode });
-    } else {
-        res.status(404).json({ error: 'QR no disponible' });
-    }
-});
-
 client.initialize();
 
-// Llamar a la función notificar para iniciar la ejecución
-// notificar(); // Eliminar esta línea
-
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en puerto ${PORT}`);
-});
-
-export default notificar
+export default getQRCode
