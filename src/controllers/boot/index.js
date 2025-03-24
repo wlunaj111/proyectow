@@ -1,7 +1,15 @@
 import pkg from 'whatsapp-web.js';
 const { Client, LocalAuth } = pkg;
-import qrcode from 'qrcode-terminal';
+import qrcode from 'qrcode';
 import { AnunciosANotificar, marcarComoEnviada } from "../../utils/index.js";
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+let qrCode = null; // Variable para almacenar el código QR
 
 const client = new Client({
     authStrategy: new LocalAuth()
@@ -52,13 +60,34 @@ const notificar = async () => {
     anuncios = []; // Limpiar anuncios
 };
 
-client.on('qr', qr => {
-    qrcode.generate(qr, { small: true });
+client.on('qr', async (qr) => {
+    try {
+        // Convertir el código QR a una URL de imagen
+        qrCode = await qrcode.toDataURL(qr);
+        console.log('qrCodeeee', qrCode)
+        console.log('Nuevo código QR generado');
+    } catch (err) {
+        console.error('Error al generar QR:', err);
+    }
+});
+
+// Endpoint para obtener el código QR
+app.get('/api/qr', (req, res) => {
+    if (qrCode) {
+        res.json({ qr: qrCode });
+    } else {
+        res.status(404).json({ error: 'QR no disponible' });
+    }
 });
 
 client.initialize();
 
 // Llamar a la función notificar para iniciar la ejecución
 // notificar(); // Eliminar esta línea
+
+const PORT = 3001;
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en puerto ${PORT}`);
+});
 
 export default notificar
